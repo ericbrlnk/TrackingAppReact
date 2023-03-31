@@ -94,6 +94,14 @@ namespace TrackingAppReact.Controllers
             _context.Inbox.Add(inbox);
             await _context.SaveChangesAsync();
 
+            Console.WriteLine($"ID: {inbox.ID}, " +
+                $"Tracking number: {inbox.TrackingNumber}, " +
+                $"Status: {inbox.Status}, " +
+                $"Handling: {inbox.Handling}, " +
+                $"Delay: {inbox.Delay}, " +
+                $"DispatchNote: {inbox.DispatchNote}"
+                );
+
             return CreatedAtAction("GetInbox", new { id = inbox.ID }, inbox);
         }
 
